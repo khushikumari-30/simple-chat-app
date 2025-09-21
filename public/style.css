@@ -1,0 +1,142 @@
+/* styles.css - basic styling for Simple Chat App */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background: #222;
+  color: #fff;
+  padding: 14px 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* chat container: stack messages top-to-bottom */
+.chat-box {
+  display: flex;
+  flex-direction: column; /* stack messages vertically */
+  gap: 8px; /* space between messages */
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  height: 60vh;
+  overflow-y: auto;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+/* Each message bubble */
+.message {
+  display: inline-block;
+  padding: 10px 14px;
+  margin-bottom: 0;
+  border-radius: 18px;
+  color: #fff;
+  max-width: 70%;
+  word-wrap: break-word;
+  line-height: 1.2;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* ✅ My messages (green, right) */
+.user-a {
+  background: #2ecc71; /* green */
+  align-self: flex-end; /* push to right */
+  border-bottom-right-radius: 4px;
+}
+
+/* ✅ Other user's messages (blue, left) */
+.user-b {
+  background: #3498db; /* blue */
+  align-self: flex-start; /* push to left */
+  border-bottom-left-radius: 4px;
+}
+
+/* tail for my messages (green, right) */
+.user-a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 10px solid #2ecc71; /* points left from right bubble */
+  border-bottom: 8px solid transparent;
+  margin-right: -6px;
+  transform: translateY(6px);
+  align-self: flex-end;
+}
+
+/* tail for other messages (blue, left) */
+.user-b::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-right: 10px solid #3498db; /* points right from left bubble */
+  border-bottom: 8px solid transparent;
+  margin-left: -6px;
+  transform: translateY(6px);
+}
+
+/* username above text */
+.message .meta {
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 6px;
+  opacity: 0.95;
+}
+
+.message .text {
+  display: block;
+  font-size: 15px;
+}
+
+/* Input area */
+.chat-form {
+  display: flex;
+  gap: 8px;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.send-btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.send-btn:active {
+  transform: translateY(1px);
+}

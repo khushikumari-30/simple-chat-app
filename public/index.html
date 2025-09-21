@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simple Chat App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/icons/icon-192.png" type="image/png" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Simple Chat App</h1>
+    </header>
+
+    <main class="container">
+      <!-- Chat box -->
+      <div id="chatBox" class="chat-box" aria-live="polite"></div>
+
+      <!-- Input area -->
+      <form id="chatForm" class="chat-form" autocomplete="off">
+        <input
+          id="messageInput"
+          class="message-input"
+          type="text"
+          placeholder="Type a message..."
+          aria-label="Message"
+        />
+        <button id="sendBtn" class="send-btn" type="submit">Send</button>
+      </form>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>
